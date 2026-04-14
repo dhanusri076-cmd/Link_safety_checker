@@ -31,7 +31,8 @@ def check():
         return jsonify({"is_malicious": True, "error": str(e)})
 
 if __name__ == '__main__':
-    # Running on port 5000 as required by your extension
-   import os
-    port = int(os.environ.get("PORT", 5000))
+    import os
+    # Get the port from Render's environment, or default to 10000
+    port = int(os.environ.get("PORT", 10000))
+    # '0.0.0.0' is the secret to making it visible to Render
     app.run(host='0.0.0.0', port=port)
